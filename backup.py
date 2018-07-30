@@ -15,11 +15,11 @@ class BackUp:
         g_path.mkdir(parents=True, exist_ok=True)
 
         if hasattr(gr,"projects"):
-            for project in gr.projects.list():
+            for project in gr.projects.list(all=True):
                 self._get_project(project, g_path)
 
         if hasattr(gr,"subgroups"):
-            for group in gr.subgroups.list():
+            for group in gr.subgroups.list(all=True):
                 g_obj = self.gl.groups.get(group.id)
                 self.backup(g_obj, path=g_path)
 
